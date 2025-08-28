@@ -6,8 +6,6 @@
     <title>Blue Ocean Finance - Project Timeline</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
@@ -15,11 +13,10 @@
         }
         
         body {
-            font-family: 'Montserrat', 'Bell MT', serif;
+            font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #002133 0%, #003d5c 50%, #002133 100%);
             min-height: 100vh;
             padding: 20px;
-            color: #ffffff;
         }
         
         .container {
@@ -173,31 +170,31 @@
             box-shadow: 0 10px 30px rgba(0, 33, 51, 0.1);
             border: 1px solid rgba(0, 249, 255, 0.2);
             margin-bottom: 40px;
+            overflow-x: auto;
+        }
+        
+        .timeline-table {
+            width: 100%;
+            min-width: 1200px;
+            border-collapse: collapse;
         }
         
         .timeline-header {
-            display: grid;
-            grid-template-columns: 250px 140px 140px 140px 140px 100px 80px;
-            gap: 15px;
-            padding: 15px;
             background: linear-gradient(45deg, #002133, #003d5c);
             color: #ffffff;
-            border-radius: 10px;
-            font-weight: 600;
-            margin-bottom: 20px;
+        }
+        
+        .timeline-header th {
+            padding: 15px 10px;
             font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-align: left;
+            border: none;
         }
         
         .timeline-row {
-            display: grid;
-            grid-template-columns: 250px 140px 140px 140px 140px 100px 80px;
-            gap: 15px;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            transition: all 0.3s ease;
             border-left: 4px solid transparent;
-            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
         }
         
         .timeline-row:hover {
@@ -220,16 +217,23 @@
             border-left-color: #808080;
         }
         
+        .timeline-row td {
+            padding: 15px 10px;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            vertical-align: middle;
+        }
+        
         .task-name {
             font-weight: 600;
             color: #002133;
-            font-family: 'Montserrat', sans-serif;
+            min-width: 200px;
         }
         
         .person {
             font-size: 0.9rem;
             color: #666;
-            font-family: 'Montserrat', sans-serif;
+            min-width: 120px;
         }
         
         .role-label {
@@ -249,6 +253,8 @@
             font-weight: 600;
             text-align: center;
             font-family: 'Montserrat', sans-serif;
+            min-width: 80px;
+            display: inline-block;
         }
         
         .status.completed {
@@ -415,17 +421,6 @@
         }
         
         @media (max-width: 768px) {
-            .timeline-header,
-            .timeline-row {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            .timeline-header > div,
-            .timeline-row > div {
-                text-align: left;
-            }
-            
             .progress-overview {
                 grid-template-columns: 1fr;
             }
@@ -505,394 +500,189 @@
         </div>
         
         <div class="timeline-container">
-            <div class="timeline-header">
-                <div>Task / Step</div>
-                <div>Responsible</div>
-                <div>Accountable</div>
-                <div>Consulted</div>
-                <div>Informed</div>
-                <div>Status</div>
-                <div>Progress</div>
-            </div>
-            
-            <div class="timeline-row completed">
-                <div class="task-name">Initial deal evaluation</div>
-                <div class="person">Neb Mesfin <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">D. Tabibian @JMBM <span class="role-label">(C)</span></div>
-                <div class="person">Stephen King <span class="role-label">(I)</span></div>
-                <div class="status completed">Completed</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 100%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row in-progress">
-                <div class="task-name">Negotiate terms & PSA</div>
-                <div class="person">Neb + David <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">D. Tabibian @JMBM <span class="role-label">(C)</span></div>
-                <div class="person">Stephen King <span class="role-label">(I)</span></div>
-                <div class="status in-progress">In Progress</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Wire EMD</div>
-                <div class="person">Armond <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">1st AM. Title <span class="role-label">(C)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Construction bid process</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="person">Stephen King <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Additional parking contract</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">D. Tabibian @JMBM <span class="role-label">(C)</span></div>
-                <div class="person">Stephen King <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">TI draws</div>
-                <div class="person">Armond <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">Neb <span class="role-label">(C)</span></div>
-                <div class="person">Stephen King <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Construction management</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Move-in management</div>
-                <div class="person">Suzana <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">LFJ <span class="role-label">(C)</span></div>
-                <div class="person">LFJ <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">City inspections & approvals</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">City of Glendale <span class="role-label">(A)</span></div>
-                <div class="person">GC <span class="role-label">(C)</span></div>
-                <div class="person">Edwin <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- RACI Guide Section -->
-        <div class="raci-guide">
-            <h2 class="raci-title">
-                <div class="raci-icon">R</div>
-                RACI Matrix Guide
-            </h2>
-            <div class="raci-grid">
-                <div class="raci-item">
-                    <div class="raci-letter">R</div>
-                    <div class="raci-content">
-                        <div class="raci-role">Responsible</div>
-                        <div class="raci-description">Does the work and completes the task</div>
-                    </div>
-                </div>
-                <div class="raci-item">
-                    <div class="raci-letter">A</div>
-                    <div class="raci-content">
-                        <div class="raci-role">Accountable</div>
-                        <div class="raci-description">Final authority and decision maker</div>
-                    </div>
-                </div>
-                <div class="raci-item">
-                    <div class="raci-letter">C</div>
-                    <div class="raci-content">
-                        <div class="raci-role">Consulted</div>
-                        <div class="raci-description">Provides expertise and input</div>
-                    </div>
-                </div>
-                <div class="raci-item">
-                    <div class="raci-letter">I</div>
-                    <div class="raci-content">
-                        <div class="raci-role">Informed</div>
-                        <div class="raci-description">Kept updated on progress</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Status Legend Section -->
-        <div class="status-legend">
-            <h3 class="legend-title">Status Legend</h3>
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="legend-color" style="background-color: #00f9ff;"></div>
-                    <span>Completed</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background-color: #002133;"></div>
-                    <span>In Progress</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background-color: #808080;"></div>
-                    <span>Not Started</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row in-progress">
-                <div class="task-name">Loan Process (A to Z)</div>
-                <div class="person">Neb Mesfin <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">Azim @ CNB <span class="role-label">(C)</span></div>
-                <div class="person">Stephen King <span class="role-label">(I)</span></div>
-                <div class="status in-progress">In Progress</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 10%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Appraisal</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">CNB <span class="role-label">(A)</span></div>
-                <div class="person">Appraiser <span class="role-label">(C)</span></div>
-                <div class="person">Edwin <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Environmental Phase I</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">CNB <span class="role-label">(A)</span></div>
-                <div class="person">Inspector <span class="role-label">(C)</span></div>
-                <div class="person">Edwin <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Environmental Phase II (if)</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Bank <span class="role-label">(A)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="person">Edwin <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Title review</div>
-                <div class="person">1st AM. Title <span class="role-label">(R)</span></div>
-                <div class="person">Bank <span class="role-label">(A)</span></div>
-                <div class="person">D. Tabibian @JMBM <span class="role-label">(C)</span></div>
-                <div class="person">Edwin <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Escrow process</div>
-                <div class="person">1st AM. Title <span class="role-label">(R)</span></div>
-                <div class="person">Bank + Escrow <span class="role-label">(A)</span></div>
-                <div class="person">Neb <span class="role-label">(C)</span></div>
-                <div class="person">Edwin <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Building inspection</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">Need inspector <span class="role-label">(C)</span></div>
-                <div class="person">Seller <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Space planning / fit test</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">Need company <span class="role-label">(C)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Mechanical plans</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">Need engineer <span class="role-label">(C)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Electrical plans</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">Need engineer <span class="role-label">(C)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Low voltage plans</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">Need company <span class="role-label">(C)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Plumbing plans</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">Need engineer <span class="role-label">(C)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Takeoff</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="person">Edwin <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-row not-started">
-                <div class="task-name">Budget finalization</div>
-                <div class="person">Neb <span class="role-label">(R)</span></div>
-                <div class="person">Edwin <span class="role-label">(A)</span></div>
-                <div class="person">- <span class="role-label">(-)</span></div>
-                <div class="person">Stephen King <span class="role-label">(I)</span></div>
-                <div class="status not-started">Not Started</div>
-                <div>
-                    <div class="progress-mini">
-                        <div class="progress-mini-
+            <table class="timeline-table">
+                <thead class="timeline-header">
+                    <tr>
+                        <th>Task / Step</th>
+                        <th>Responsible</th>
+                        <th>Accountable</th>
+                        <th>Consulted</th>
+                        <th>Informed</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="timeline-row completed">
+                        <td class="task-name">Initial deal evaluation</td>
+                        <td class="person">Neb Mesfin <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">D. Tabibian @JMBM <span class="role-label">(C)</span></td>
+                        <td class="person">Stephen King <span class="role-label">(I)</span></td>
+                        <td><span class="status completed">Completed</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 100%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row in-progress">
+                        <td class="task-name">Negotiate terms & PSA</td>
+                        <td class="person">Neb + David <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">D. Tabibian @JMBM <span class="role-label">(C)</span></td>
+                        <td class="person">Stephen King <span class="role-label">(I)</span></td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 85%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Wire EMD</td>
+                        <td class="person">Armond <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">1st AM. Title <span class="role-label">(C)</span></td>
+                        <td class="person">Stephen King <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row in-progress">
+                        <td class="task-name">Loan Process (A to Z)</td>
+                        <td class="person">Neb Mesfin <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">Azim @ CNB <span class="role-label">(C)</span></td>
+                        <td class="person">Stephen King <span class="role-label">(I)</span></td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 10%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Appraisal</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">CNB <span class="role-label">(A)</span></td>
+                        <td class="person">Appraiser <span class="role-label">(C)</span></td>
+                        <td class="person">Edwin <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Environmental Phase I</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">CNB <span class="role-label">(A)</span></td>
+                        <td class="person">Inspector <span class="role-label">(C)</span></td>
+                        <td class="person">Edwin <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Environmental Phase II (if)</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">Bank <span class="role-label">(A)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td class="person">Edwin <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Title review</td>
+                        <td class="person">1st AM. Title <span class="role-label">(R)</span></td>
+                        <td class="person">Bank <span class="role-label">(A)</span></td>
+                        <td class="person">D. Tabibian @JMBM <span class="role-label">(C)</span></td>
+                        <td class="person">Edwin <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Escrow process</td>
+                        <td class="person">1st AM. Title <span class="role-label">(R)</span></td>
+                        <td class="person">Bank + Escrow <span class="role-label">(A)</span></td>
+                        <td class="person">Neb <span class="role-label">(C)</span></td>
+                        <td class="person">Edwin <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Building inspection</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">Need inspector <span class="role-label">(C)</span></td>
+                        <td class="person">Seller <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Space planning / fit test</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">Need company <span class="role-label">(C)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Mechanical plans</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">Need engineer <span class="role-label">(C)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Electrical plans</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">Need engineer <span class="role-label">(C)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Low voltage plans</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">Need company <span class="role-label">(C)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Plumbing plans</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">Need engineer <span class="role-label">(C)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Takeoff</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td class="person">Edwin <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Budget finalization</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
+                        <td class="person">Edwin <span class="role-label">(A)</span></td>
+                        <td class="person">- <span class="role-label">(-)</span></td>
+                        <td class="person">Stephen King <span class="role-label">(I)</span></td>
+                        <td><span class="status not-started">Not Started</span></td>
+                        <td><div class="progress-mini"><div class="progress-mini-fill" style="width: 0%"></div></div></td>
+                    </tr>
+                    
+                    <tr class="timeline-row not-started">
+                        <td class="task-name">Construction bid process</td>
+                        <td class="person">Neb <span class="role-label">(R)</span></td>
